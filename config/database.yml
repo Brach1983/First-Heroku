@@ -1,0 +1,18 @@
+
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: first_heroku-development
+
+
+test:
+  <<: *default
+  database: first_heroku-test
+
+production:
+  <<: *default
+  database: first_heroku
